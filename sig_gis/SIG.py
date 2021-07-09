@@ -1,8 +1,8 @@
-from SINF import *
-from load_data import * 
+from sig_gis.SINF import *
+from sig_gis.load_data import * 
 import argparse
 import time
-from fid_score import evaluate_fid_score
+from sig_gis.fid_score import evaluate_fid_score
 import torch.multiprocessing as mp
 import sys
 import os

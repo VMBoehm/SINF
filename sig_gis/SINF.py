@@ -3,8 +3,8 @@ import torch.nn as nn
 import numpy as np
 import time
 import math
-from SlicedWasserstein import *
-from RQspline import *
+from sig_gis.SlicedWasserstein import *
+from sig_gis.RQspline import *
 import torch.multiprocessing as mp
 import copy
 

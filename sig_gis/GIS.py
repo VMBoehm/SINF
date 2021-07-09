@@ -1,8 +1,8 @@
-from SINF import *
-from load_data import * 
+from sig_gis.SINF import *
+from sig_gis.load_data import * 
 import argparse
 
-def GIS(data_train, data_validate=None, iteration=None, weight_train=None, weight_validate=None, K=None, M=None, KDE=True, b_factor=1, alpha=None, bounds=None,
+def train_GIS(data_train, data_validate=None, iteration=None, weight_train=None, weight_validate=None, K=None, M=None, KDE=True, b_factor=1, alpha=None, bounds=None,
         edge_bins=None, ndata_A=None, MSWD_max_iter=None, NBfirstlayer=False, Whiten=False, batchsize=None, nocuda=False, patch=False, shape=[28,28,1], model=None, verbose=True):
     
     '''
@@ -350,9 +350,9 @@ if __name__ == "__main__":
 
     #training
     if args.dataset in ['power', 'gas', 'hepmass', 'miniboone', 'bsds300']:
-        model = GIS(data_train, data_validate, Whiten=args.whiten, batchsize=2**15, model=model, nocuda=args.nocuda)
+        model = train_GIS(data_train, data_validate, Whiten=args.whiten, batchsize=2**15, model=model, nocuda=args.nocuda)
     else:
-        model = GIS(data_train, data_validate, bounds=bounds, Whiten=args.whiten, batchsize=2**15, patch=True, shape=shape, model=model, nocuda=args.nocuda)
+        model = train_GIS(data_train, data_validate, bounds=bounds, Whiten=args.whiten, batchsize=2**15, patch=True, shape=shape, model=model, nocuda=args.nocuda)
 
     print('Training time:', time.time()-t)
     
